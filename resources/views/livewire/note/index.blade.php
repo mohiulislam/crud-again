@@ -5,7 +5,11 @@
 </x-slot>
 
 <div class="container mx-auto mt-6 px-[10%]">
-    
+
+    <x-modal name="confirm-note-deletion" :show="$errors->isNotEmpty()" focusable>
+        <livewire:note.delete-note-form />
+    </x-modal>
+
     <div class="flex justify-end items-center mb-4">
         <x-primary-button class="bg-blue-700 hover:bg-blue-900 " wire:navigate href="{{ route('notes.create') }}">
             {{ __('Create Note') }}
