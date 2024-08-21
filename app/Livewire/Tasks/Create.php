@@ -2,9 +2,10 @@
 
 namespace App\Livewire\Tasks;
 
+use Carbon\Carbon;
+use App\Models\Task;
 use Livewire\Component;
 use Jantinnerezo\LivewireAlert\LivewireAlert;
-use App\Models\Task;
 
 class Create extends Component
 {
@@ -12,6 +13,12 @@ class Create extends Component
     use LivewireAlert;
 
     public $title, $description, $start_date, $end_date, $completed;
+
+
+    public function mount($date=null){
+
+        $this->start_date = Carbon::create($date)->format('Y-m-d');
+    }
 
 
     public function render()
@@ -26,7 +33,7 @@ class Create extends Component
     public function store()
     {
         $this->validate([
-           
+
 		'title' => 'required',
 		'start_date' => 'required',
 		'end_date' => 'required',
@@ -34,7 +41,7 @@ class Create extends Component
         ]);
 
         Task::create([
-            
+
 			'title' => $this-> title,
 			'description' => $this-> description,
 			'start_date' => $this-> start_date,

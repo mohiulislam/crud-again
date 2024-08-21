@@ -24,7 +24,8 @@
                 @foreach($week as $day)
                     <div
                         class="relative h-32 p-2 transition duration-300 ease-in-out border rounded-lg shadow-inner cursor-pointer sm:h-36 bg-gradient-to-r from-gray-50 to-gray-100 hover:bg-gradient-to-r hover:from-blue-50 hover:to-blue-100"
-                        @if($day) onclick="Livewire.dispatch('openModal', { component: 'tasks.create', data:{} })" @endif
+                        @if($day) onclick="Livewire.dispatch('openModal', { component: 'tasks.create', data:{ date: '{{ $currentYear }}-{{ $currentMonth }}-{{ $day }}' } })"
+                        @endif
                     >
                         @if($day)
                             <div class="absolute text-xs font-bold tracking-wide text-gray-800 sm:text-sm top-2 left-2">{{ $day }}</div>
