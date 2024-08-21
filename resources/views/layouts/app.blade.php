@@ -36,6 +36,7 @@
     </div>
     <x-livewire-alert::scripts />
     <livewire:modals/>
+    @livewireCalendarScripts
 </body>
 
 </html>

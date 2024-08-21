@@ -6,7 +6,10 @@
 
 <div class="container mx-auto mt-6 px-[10%]">
 
-
+    <livewire:appointments-calendar
+    year="2019"
+    month="12"
+ />
 
     <div class="flex items-center justify-end mb-4">
         <x-primary-button class="bg-blue-700 hover:bg-blue-900 " wire:navigate href="{{ route('notes.create') }}">
