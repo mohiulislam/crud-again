@@ -2,10 +2,12 @@
 
 namespace App\Livewire\Note;
 
-use Livewire\Component;
 use App\Models\Note;
+use Livewire\Component;
+use Livewire\Attributes\On;
 use Livewire\WithPagination;
 
+#[On('refresh')]
 class Index extends Component
 {
     use WithPagination;

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "54c209aac9d90576bf4fab1af5623212",
+    "content-hash": "b2de13b095a1112cd9932b6e0b3b342e",
     "packages": [
         {
             "name": "brick/math",
@@ -3318,6 +3318,73 @@
                 }
             ],
             "time": "2024-04-27T21:32:50+00:00"
+        },
+        {
+            "name": "sagor110090/livewire-modal",
+            "version": "1.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/sagor110090/livewire-modal.git",
+                "reference": "54de38e9924df62a8730b72ec13b2b71583f2464"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/sagor110090/livewire-modal/zipball/54de38e9924df62a8730b72ec13b2b71583f2464",
+                "reference": "54de38e9924df62a8730b72ec13b2b71583f2464",
+                "shasum": ""
+            },
+            "require": {
+                "laravel/framework": "^8.0|^9.0|^10.0|^11.0",
+                "livewire/livewire": "^3.0",
+                "php": "^7.4|^8.0|^8.1|^8.2"
+            },
+            "require-dev": {
+                "orchestra/testbench": "^6.0",
+                "phpunit/phpunit": "^9.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Sagor110090\\LivewireModal\\LivewireModalServiceProvider"
+                    ],
+                    "aliases": {
+                        "LivewireModal": "Sagor110090\\LivewireModal\\LivewireModalFacade"
+                    }
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Sagor110090\\LivewireModal\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Mehedi Hasan Sagor",
+                    "email": "mehedihasansagor.cse@gmail.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "This Laravel Livewire package simplifies the implementation of dynamic, responsive modals in your web applications. With a focus on seamless integration and flexibility, this package allows developers to easily create and manage modals without the need for JavaScript or additional front-end dependencies. Featuring out-of-the-box support for multiple modal instances, dynamic content, and customizable design options, it’s perfect for crafting modern, interactive interfaces. Whether you need confirmation dialogs, form modals, or notification pop-ups, this package delivers a clean, reusable solution for your Livewire-powered applications.",
+            "homepage": "https://github.com/sagor110090/livewire-modal ",
+            "keywords": [
+                "laravel",
+                "livewire",
+                "livewire-modal",
+                "mehedi hasan sagor",
+                "modal",
+                "modal component",
+                "sagor110090"
+            ],
+            "support": {
+                "issues": "https://github.com/sagor110090/livewire-modal/issues",
+                "source": "https://github.com/sagor110090/livewire-modal/tree/1.0.1"
+            },
+            "time": "2024-08-19T10:08:25+00:00"
         },
         {
             "name": "symfony/clock",
