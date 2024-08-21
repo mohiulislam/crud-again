@@ -9,34 +9,42 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.bunny.net">
-    <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
-
-    <!-- Scripts -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
+    <wireui:scripts />
     @vite(['resources/css/app.css', 'resources/js/app.js'])
+    @livewireStyles
+    @rappasoftTableStyles
+    @rappasoftTableThirdPartyStyles
 </head>
 
-<body class="font-sans antialiased" x-data="loader">
-    <div class="min-h-screen bg-gray-100">
-        <livewire:layout.navigation />
+<body>
+    <div x-data="{ sidebarOpen: false }" class="flex h-screen bg-slate-200 font-roboto">
+        @include('layouts.navigation')
 
-        <!-- Page Heading -->
-        @if (isset($header))
-            <header class="bg-white shadow">
-                <div class="px-4 py-6 mx-auto max-w-7xl sm:px-6 lg:px-8">
-                    {{ $header }}
+        <div class="flex flex-col flex-1 overflow-hidden">
+            @include('layouts.header')
+
+            <main class="flex-1 overflow-x-hidden overflow-y-auto bg-slate-200">
+                <div class="container px-6 py-8 mx-auto">
+                    @if (isset($header))
+                        <h3 class="mb-4 text-3xl font-medium text-gray-700">
+                            {{ $header }}
+                        </h3>
+                    @endif
+
+                    {{ $slot }}
                 </div>
-            </header>
-        @endif
-
-        <!-- Page Content -->
-        <main>
-            {{ $slot }}
-        </main>
+            </main>
+        </div>
     </div>
-    <x-livewire-alert::scripts />
+    @livewireScripts
     <livewire:modals/>
+    @stack('scripts')
+    <x-livewire-alert::scripts />
+    @rappasoftTableScripts
+    @rappasoftTableThirdPartyScripts
     @livewireCalendarScripts
+
 </body>
 
 </html>

@@ -1,26 +1,36 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Livewire\Note;
+use Livewire\Volt\Volt;
 
-Route::view('/', 'welcome');
+/*
+|--------------------------------------------------------------------------
+| Web Routes
+|--------------------------------------------------------------------------
+|
+| Here is where you can register web routes for your application. These
+| routes are loaded by the RouteServiceProvider within a group which
+| contains the "web" middleware group. Now create something great!
+|
+*/
 
-Route::view('dashboard', 'dashboard')
-    ->middleware(['auth', 'verified'])
-    ->name('dashboard');
-
-Route::view('profile', 'profile')
-    ->middleware(['auth'])
-    ->name('profile');
-
-Route::group(['middleware' => ['auth']], function () {
-    Route::post('profile', 'App\Http\Controllers\ProfileController@update')->name('profile.update');
-    Route::get('profile/destroy', 'App\Http\Controllers\ProfileController@destroy')->name('profile.destroy');
-    Route::get('notes', Note\Index::class)->name('notes.index');
-    Route::get('notes/create', Note\Create::class)->name('notes.create');
-    Route::get('notes/{note}', Note\Show::class)->name('notes.show');
-    Route::get('notes/{note}/edit', Note\Edit::class)->name('notes.edit');
+Route::get('/', function () {
+    return view('welcome');
 });
 
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth', 'verified'])->name('dashboard');
+
+Route::middleware('auth')->group(function () {
+
+    Route::get('/profile', App\Livewire\Profile\Index::class)->name('profile.edit');
+});
 
 require __DIR__ . '/auth.php';
+
+//Route Hooks - Do not delete//
+	Route::get('tasks', App\Livewire\Tasks\Index::class)->name('tasks.index')->middleware('auth');
+	Route::get('notes', App\Livewire\Notes\Index::class)->name('notes.index')->middleware('auth');
+    // Volt::route('calendar','calendar.index')->name('calendar.index')->middleware('auth');
+    Route::get('calendar', App\Livewire\TaskCalendar::class)->name('calendar.index')->middleware('auth');

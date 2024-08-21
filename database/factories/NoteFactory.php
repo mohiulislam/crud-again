@@ -2,24 +2,21 @@
 
 namespace Database\Factories;
 
+use App\Models\Note;
 use Illuminate\Database\Eloquent\Factories\Factory;
+use Illuminate\Support\Str;
 
-/**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Note>
- */
 class NoteFactory extends Factory
 {
-    /**
-     * Define the model's default state.
-     *
-     * @return array<string, mixed>
-     */
-    public function definition(): array
-    {
+    protected $model = Note::class;
 
+    public function definition()
+    {
+        $dates = $this->faker->dateTimeBetween('-1 month', '+1 month');
         return [
-            'title' => fake()->sentence(10),
-            'content' => fake()->paragraphs(3, true),
+			'title' => $this->faker->name,
+			'description' => $this->faker->sentence(10),
+            'date' => $dates->format('Y-m-d'),
         ];
     }
 }

@@ -1,7 +1,7 @@
 @props(['title', 'content', 'id'])
 
 <div
-    class="relative max-w-full p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 h-60 group">
+    class="relative max-w-full p-6 bg-white border border-gray-200 rounded-lg shadow h-60 group">
     <button wire:click="$dispatch('openModal', { component: 'note.delete-note-form', data: { noteId: {{ $id }} } })" class="absolute hidden text-gray-400 top-2 right-2 hover:text-red-600 group-hover:block">
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
         class="w-6 h-6">
@@ -26,9 +26,9 @@
     </button> --}}
     <div class="h-full cursor-pointer" wire:navigate href="{{ route('notes.show', $id) }}">
         <a href="#">
-            <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 truncate dark:text-white">
+            <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 truncate">
                 {{ $title }}</h5>
         </a>
-        <p class="mb-3 font-normal text-gray-700 dark:text-gray-400 line-clamp-5">{{ $content }}</p>
+        <p class="mb-3 font-normal text-gray-700 line-clamp-5">{{ $content }}</p>
     </div>
 </div>

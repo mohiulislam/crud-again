@@ -7,11 +7,12 @@ use Illuminate\Database\Eloquent\Model;
 
 class Note extends Model
 {
+	use HasFactory;
 
-    protected $fillable = [
-        'title',
-        'content'
-    ];
-    
-    use HasFactory;
+    public $timestamps = true;
+
+    protected $table = 'notes';
+
+    protected $fillable = ['title','description','date'];
+	
 }
