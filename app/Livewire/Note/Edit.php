@@ -35,7 +35,8 @@ class Edit extends Component
 
         $this->flash('success', 'Portfolio Updated Successfully', [
             'toast' => true,
-            'position' => 'top-right'
+            'position' => 'top-right',
+            'timer' => 1000
         ]);
         return $this->redirect(route('notes.index'), true);
     }
